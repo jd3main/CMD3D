@@ -21,10 +21,7 @@ private:
 
 	void set_angle()
 	{
-		// V angle 
 		V_angle = asin(up*dir);
-
-//		Vec3 L = (up+Vec3(0,0,1))^up;
 		H_angle = PI*0.5 - atan2(dir.z,dir.x);
 	}
 
