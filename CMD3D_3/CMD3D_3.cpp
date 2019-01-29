@@ -64,8 +64,6 @@ struct Canvas
 	
 	void Draw_Line(Vec3 a, Vec3 b, char c='*')
 	{
-//		cout << "Draw:" << a << "," << b << endl;
-		
 		a.y = -a.y;
 		b.y = -b.y;
 		a += Vec3(w/2.0, h/2.0, 0);
@@ -77,8 +75,6 @@ struct Canvas
 		if(a.y >= h && b.y >= h)return;
 		
 		Clip_Line(a,b);
-		
-//		cout << "Cliped :" << a << "," << b << endl;
 		
 		
 		float dx = b.x-a.x;
@@ -169,23 +165,9 @@ void Init()
 }
 
 
-//char output_buff[10011];
 string output_buff;
 void Output_To_Buffer()
 {
-	/*
-	int k = 0;
-	for(int i = 0 ; i < h ; i++)
-	{
-		for(int j = 0 ; j < w ; j++)
-		{
-			output_buff[k] = canvas[i][j];
-			k++;
-		}
-		output_buff[k++] = '\n';
-	}
-	output_buff[k] = '\0';
-	*/
 	output_buff = "";
 	for(int i = 0 ; i < h ; i++)
 	{
@@ -246,10 +228,8 @@ void Draw_MDL(const WMDL &mdl, const Vec3 &pos_v, const Vec3 &rot_v, const Vec3 
 	for(int i = 0 ; i<n ; i+=2)
 		Clip_Z(p_buff[i], p_buff[i+1]);
 	
-		
 	
 	// projection
-	
 	float rdz = 1/(z_far-z_near);
 	for(int i = 0 ; i < n ; i++)
 	{
